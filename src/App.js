@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Box from "@mui/material/Box";
+import NavBar from "./components/NavBar";
+import Search from './components/Search';
+import ImageGallary from './components/ImageGallary';
+import { ImageAppContextProvider } from './contexts/app-context';
+
 
 function App() {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <ImageAppContextProvider>
+        <NavBar />
+        <Search />
+        <ImageGallary />
+      </ImageAppContextProvider>
+    </Box>
   );
 }
 
