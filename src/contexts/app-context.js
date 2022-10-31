@@ -1,5 +1,4 @@
-import  { createContext, useContext, useState, useEffect } from "react";
-import useAxios from "../hooks/useAxios";
+import  { createContext, useContext, useState } from "react";
 
 const ImageAppContext = createContext();
 
@@ -14,21 +13,11 @@ const ImageAppContextProvider = ({ children }) => {
     const [searchOptions, setSearchOptions] = useState(defaultSearchOptions);
     const [searchTerm, setSearchTerm] = useState('');
     const [imageResults, setImageResults] = useState([]);
-    
-    let defaultApiParams = `api/?key=${process.env.REACT_APP_PIXABAY_CLIENT_ID}&q=${encodeURIComponent(`${searchTerm}`)}&safesearch=${searchOptions.safeSearch}&per_page=${searchOptions.per_page}`;
-
-    const { response, isLoading, error, fetchData } = useAxios(defaultApiParams);
-
-    
-    useEffect(() => {
-
-        setImageResults(response);
-       
-    }, [response])
-    
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     
     return (
-        <ImageAppContext.Provider value={{ searchTerm, setSearchTerm, searchOptions, setSearchOptions, imageResults, setImageResults, fetchData, isLoading, error }}>
+        <ImageAppContext.Provider value={{ searchTerm, setSearchTerm, searchOptions, setSearchOptions, imageResults, setImageResults, isLoading, setIsLoading, error, setError }}>
             {children}
         </ImageAppContext.Provider>
     );

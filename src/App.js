@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from "@mui/material/Box";
-import NavBar from "./components/NavBar";
-import Search from './components/Search';
-import ImageGallary from './components/ImageGallary';
+import NavBar from "./components/NavBar/NavBar";
+import Search from './components/Search/Search';
+import ImageGallary from './components/ImageGallary/ImageGallary';
 import { ImageAppContextProvider } from './contexts/app-context';
 
 
