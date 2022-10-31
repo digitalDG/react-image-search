@@ -2,6 +2,10 @@
 
 Enter your Pixabay client key in the .env file
 
+# Demo Deployment
+
+The app has been deployed using gh-pages at https://digitaldg.github.io/react-image-search/
+
 
 # Getting Started with Create React App
 
